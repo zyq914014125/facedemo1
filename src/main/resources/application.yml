@@ -1,0 +1,50 @@
+spring:
+  servlet:
+    multipart:
+      # 最大文件容量
+      max-file-size: 10MB
+      max-request-size: 10MB
+  #阿里druid 配置
+  datasource:
+    druid:
+      url: "jdbc:mysql://192.168.160.128:3306/face?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC"
+      username: "root"
+      password: "123456"
+#      监控
+      filters: "stat"
+      connection-properties: "config.decrypt=true"
+      initial-size: 8
+      min-idle: 5
+      max-active: 10
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 600000
+      validation-query: "SELECT 'x'"
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+  #选择环境为dev
+  profiles:
+    active: "dev"
+
+#端口号
+server:
+  port: 8090
+
+#api
+config:
+  arcface-sdk:
+#api路径
+    sdk-lib-path: "D:\\face_libs"
+#api 激活Id
+    app-id: "H5SmVc3V8XVNXh8ofFFwzySiNmcmquwk2g1uK9CAv4qH"
+#密钥
+    sdk-key: "9v7zKaG6LaqfPXug1R6j4vJShNhK29BF7WXBZncX6jWN"
+#线程池数
+    thread-pool-size: 5
+
+#下划线转驼峰
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
